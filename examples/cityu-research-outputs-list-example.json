@@ -1,0 +1,33 @@
+{
+  "count": 48213,
+  "pageInformation": {
+    "offset": 0,
+    "size": 10
+  },
+  "items": [
+    {
+      "pureId": 100123456,
+      "uuid": "a1b2c3d4-0000-4f00-9abc-000000000001",
+      "createdDate": "2021-03-14T09:12:00.000Z",
+      "modifiedDate": "2023-08-01T11:45:30.000Z",
+      "portalUrl": "https://scholars.cityu.edu.hk/en/publications/a1b2c3d4-0000-4f00-9abc-000000000001",
+      "version": "1",
+      "title": { "en_GB": "Example title of a CityUHK research output" },
+      "type": {
+        "uri": "/dk/atira/pure/researchoutput/researchoutputtypes/contributiontojournal/article",
+        "term": { "en_GB": "Journal article" }
+      },
+      "category": {
+        "uri": "/dk/atira/pure/researchoutput/category/academic",
+        "term": { "en_GB": "Academic" }
+      },
+      "peerReview": true,
+      "submissionYear": 2023,
+      "totalNumberOfContributors": 3,
+      "visibility": {
+        "key": "FREE",
+        "description": { "en_GB": "Public - No restriction" }
+      }
+    }
+  ]
+}

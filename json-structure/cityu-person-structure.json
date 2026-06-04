@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/json-structure/cityu-person-structure.json",
+  "name": "Person",
+  "description": "JSON Structure for a CityUHK Scholars (Elsevier Pure) person object, derived from the real Pure API 5.35.1-2 OpenAPI contract.",
+  "type": "object",
+  "properties": {
+    "pureId": { "type": "int64" },
+    "uuid": { "type": "string" },
+    "createdDate": { "type": "string", "format": "date-time" },
+    "modifiedDate": { "type": "string", "format": "date-time" },
+    "portalUrl": { "type": "string", "format": "uri" },
+    "name": {
+      "type": "object",
+      "properties": {
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" }
+      }
+    },
+    "orcid": { "type": "string" },
+    "orcidAuthenticated": { "type": "boolean" },
+    "nationality": { "$ref": "#/definitions/ClassificationRef" },
+    "mainResearchArea": { "$ref": "#/definitions/ClassificationRef" },
+    "willingToTakePhdStudents": { "type": "boolean" },
+    "profiled": { "type": "boolean" }
+  },
+  "definitions": {
+    "ClassificationRef": {
+      "type": "object",
+      "properties": {
+        "uri": { "type": "string" },
+        "term": { "type": "map", "values": { "type": "string" } }
+      },
+      "required": ["uri"]
+    }
+  }
+}

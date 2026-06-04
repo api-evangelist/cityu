@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "cityu": "https://scholars.cityu.edu.hk/ns#",
+    "@vocab": "https://scholars.cityu.edu.hk/ns#",
+
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+
+    "University": "schema:CollegeOrUniversity",
+    "institution": {
+      "@id": "cityu:institution",
+      "@type": "schema:CollegeOrUniversity"
+    },
+
+    "ResearchOutput": "schema:CreativeWork",
+    "Person": "schema:Person",
+    "Organization": "schema:Organization",
+
+    "pureId": "cityu:pureId",
+    "uuid": "cityu:uuid",
+    "portalUrl": { "@id": "schema:url", "@type": "@id" },
+    "createdDate": { "@id": "schema:dateCreated", "@type": "schema:DateTime" },
+    "modifiedDate": { "@id": "schema:dateModified", "@type": "schema:DateTime" },
+
+    "title": "schema:headline",
+    "submissionYear": "schema:datePublished",
+    "peerReview": "cityu:peerReviewed",
+    "contributors": { "@id": "schema:author", "@container": "@set" },
+    "organizations": { "@id": "schema:affiliation", "@container": "@set" },
+
+    "firstName": "schema:givenName",
+    "lastName": "schema:familyName",
+    "orcid": { "@id": "schema:identifier", "@type": "@id" },
+    "mainResearchArea": "schema:knowsAbout",
+
+    "type": "cityu:classification",
+    "category": "cityu:category",
+    "visibility": "cityu:visibility"
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "City University of Hong Kong",
+  "url": "https://www.cityu.edu.hk/"
+}

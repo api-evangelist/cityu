@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/json-structure/cityu-research-output-structure.json",
+  "name": "ResearchOutput",
+  "description": "JSON Structure for a CityUHK Scholars (Elsevier Pure) research output object, derived from the real Pure API 5.35.1-2 OpenAPI contract.",
+  "type": "object",
+  "properties": {
+    "pureId": { "type": "int64" },
+    "uuid": { "type": "string" },
+    "createdDate": { "type": "string", "format": "date-time" },
+    "modifiedDate": { "type": "string", "format": "date-time" },
+    "portalUrl": { "type": "string", "format": "uri" },
+    "title": { "type": "map", "values": { "type": "string" } },
+    "type": { "$ref": "#/definitions/ClassificationRef" },
+    "category": { "$ref": "#/definitions/ClassificationRef" },
+    "peerReview": { "type": "boolean" },
+    "submissionYear": { "type": "int32" },
+    "totalNumberOfContributors": { "type": "int32" },
+    "contributors": { "type": "array", "items": { "type": "object" } },
+    "organizations": { "type": "array", "items": { "type": "object" } }
+  },
+  "definitions": {
+    "ClassificationRef": {
+      "type": "object",
+      "properties": {
+        "uri": { "type": "string" },
+        "term": { "type": "map", "values": { "type": "string" } }
+      },
+      "required": ["uri"]
+    }
+  }
+}

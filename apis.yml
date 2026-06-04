@@ -66,6 +66,16 @@ apis:
         url: https://scholars.cityu.edu.hk/
       - type: Authentication
         url: https://scholars.cityu.edu.hk/ws/api
+      - type: OpenAPI
+        url: openapi/cityu-scholars-pure-ws.yaml
+      - type: x-json-schema
+        url: json-schema/cityu-research-output-schema.json
+      - type: x-vocabulary
+        url: vocabulary/cityu-vocabulary.yml
+      - type: x-rules
+        url: rules/cityu-rules.yml
+      - type: x-json-ld
+        url: json-ld/cityu-context.jsonld
 common:
   - type: Website
     url: https://www.cityu.edu.hk/

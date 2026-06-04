@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/json-schema/cityu-organization-schema.json",
+  "title": "Organization",
+  "description": "An organizational unit record from the CityUHK Scholars Elsevier Pure REST Web Service. Properties derived from the real OpenAPI 3.0.1 contract (Pure API 5.35.1-2).",
+  "type": "object",
+  "properties": {
+    "pureId": { "type": "integer", "format": "int64" },
+    "uuid": { "type": "string" },
+    "createdBy": { "type": "string" },
+    "createdDate": { "type": "string", "format": "date-time" },
+    "modifiedBy": { "type": "string" },
+    "modifiedDate": { "type": "string", "format": "date-time" },
+    "portalUrl": { "type": "string", "format": "uri" },
+    "version": { "type": "string" },
+    "name": {
+      "type": "object",
+      "description": "Localized organization name keyed by submission locale (LocalizedString).",
+      "additionalProperties": { "type": "string" }
+    },
+    "type": { "$ref": "#/$defs/ClassificationRef" },
+    "emails": { "type": "array", "items": { "type": "object" } },
+    "phoneNumbers": { "type": "array", "items": { "type": "object" } },
+    "webAddresses": { "type": "array", "items": { "type": "object" } },
+    "addresses": { "type": "array", "items": { "type": "object" } },
+    "parents": { "type": "array", "items": { "type": "object" } },
+    "identifiers": { "type": "array", "items": { "type": "object" } },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "startDate": { "type": "string", "format": "date" },
+        "endDate": { "type": "string", "format": "date" }
+      }
+    },
+    "visibility": { "type": "object" }
+  },
+  "$defs": {
+    "ClassificationRef": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": { "type": "string" },
+        "term": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    }
+  }
+}

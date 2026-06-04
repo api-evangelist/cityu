@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/json-schema/cityu-person-schema.json",
+  "title": "Person",
+  "description": "A person (researcher / staff) record from the CityUHK Scholars Elsevier Pure REST Web Service. Properties derived from the real OpenAPI 3.0.1 contract (Pure API 5.35.1-2).",
+  "type": "object",
+  "properties": {
+    "pureId": { "type": "integer", "format": "int64" },
+    "uuid": { "type": "string" },
+    "createdBy": { "type": "string" },
+    "createdDate": { "type": "string", "format": "date-time" },
+    "modifiedBy": { "type": "string" },
+    "modifiedDate": { "type": "string", "format": "date-time" },
+    "portalUrl": { "type": "string", "format": "uri" },
+    "version": { "type": "string" },
+    "name": {
+      "type": "object",
+      "description": "A name describing a person, made up of given- and family name.",
+      "properties": {
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" }
+      }
+    },
+    "orcid": { "type": "string", "description": "ORCID identifier." },
+    "orcidAuthenticated": { "type": "boolean" },
+    "nationality": { "$ref": "#/$defs/ClassificationRef" },
+    "gender": { "$ref": "#/$defs/ClassificationRef" },
+    "mainResearchArea": { "$ref": "#/$defs/ClassificationRef" },
+    "startDateAsResearcher": { "type": "string", "format": "date" },
+    "employeeStartDate": { "type": "string", "format": "date" },
+    "employeeEndDate": { "type": "string", "format": "date" },
+    "willingToTakePhdStudents": { "type": "boolean" },
+    "staffOrganizationAssociations": { "type": "array", "items": { "type": "object" } },
+    "profiled": { "type": "boolean" },
+    "identifiers": { "type": "array", "items": { "type": "object" } }
+  },
+  "$defs": {
+    "ClassificationRef": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": { "type": "string" },
+        "term": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    }
+  }
+}

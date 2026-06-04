@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/json-schema/cityu-research-output-schema.json",
+  "title": "ResearchOutput",
+  "description": "A research output (publication) record from the CityUHK Scholars Elsevier Pure REST Web Service. Properties are derived from the real OpenAPI 3.0.1 contract served at /ws/api/openapi.yaml (Pure API 5.35.1-2).",
+  "type": "object",
+  "properties": {
+    "pureId": { "type": "integer", "format": "int64", "description": "Internal Pure numeric identifier." },
+    "uuid": { "type": "string", "description": "Stable UUID of the research output." },
+    "createdBy": { "type": "string" },
+    "createdDate": { "type": "string", "format": "date-time" },
+    "modifiedBy": { "type": "string" },
+    "modifiedDate": { "type": "string", "format": "date-time" },
+    "portalUrl": { "type": "string", "format": "uri", "description": "Public portal URL for the research output." },
+    "version": { "type": "string" },
+    "title": {
+      "type": "object",
+      "description": "Localized title keyed by submission locale (LocalizedString).",
+      "additionalProperties": { "type": "string" }
+    },
+    "subTitle": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "type": { "$ref": "#/$defs/ClassificationRef", "description": "Classification of the research output type." },
+    "category": { "$ref": "#/$defs/ClassificationRef" },
+    "peerReview": { "type": "boolean" },
+    "language": { "$ref": "#/$defs/ClassificationRef" },
+    "submissionYear": { "type": "integer", "format": "int32" },
+    "totalNumberOfContributors": { "type": "integer", "format": "int32" },
+    "contributors": { "type": "array", "items": { "type": "object" } },
+    "organizations": { "type": "array", "items": { "type": "object" } },
+    "identifiers": { "type": "array", "items": { "type": "object" } },
+    "visibility": { "$ref": "#/$defs/Visibility" }
+  },
+  "$defs": {
+    "ClassificationRef": {
+      "type": "object",
+      "description": "A reference to a classification value.",
+      "required": ["uri"],
+      "properties": {
+        "uri": { "type": "string", "description": "Classification URI of the referred classification." },
+        "term": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "Visibility": {
+      "type": "object",
+      "properties": {
+        "key": { "type": "string", "enum": ["FREE", "CAMPUS", "RESTRICTED", "CONFIDENTIAL"] },
+        "description": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    }
+  }
+}

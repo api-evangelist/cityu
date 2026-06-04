@@ -1,0 +1,52 @@
+vocabulary:
+  name: CityUHK Scholars Pure API Vocabulary
+  description: >-
+    Controlled terms observed in the City University of Hong Kong (CityUHK)
+    Scholars research information system, served via the Elsevier Pure REST Web
+    Service (Pure API 5.35.1-2) and the companion OAI-PMH endpoint. Terms are
+    drawn from the real OpenAPI contract at /ws/api/openapi.yaml and the OAI-PMH
+    Identify response at /ws/oai.
+  version: "5.35.1-2"
+  terms:
+    - term: ResearchOutput
+      definition: A publication or other scholarly output record (journal article, conference contribution, book, etc.).
+      tags: [entity, publication, pure]
+    - term: Person
+      definition: A researcher or staff member affiliated with the university, optionally bearing an ORCID.
+      tags: [entity, person, pure]
+    - term: Organization
+      definition: An internal organizational unit (department, school, college) within the university.
+      tags: [entity, organization, pure]
+    - term: Activity
+      definition: A research-related activity such as an event, talk, or editorial role.
+      tags: [entity, activity, pure]
+    - term: Project
+      definition: A research project or programme of work.
+      tags: [entity, project, pure]
+    - term: pureId
+      definition: Internal numeric identifier assigned by the Pure system to an entity.
+      tags: [identifier, pure]
+    - term: uuid
+      definition: Stable universally unique identifier for an entity, used in portal URLs.
+      tags: [identifier, pure]
+    - term: portalUrl
+      definition: Public-facing URL of the entity on the Scholars portal.
+      tags: [link, portal]
+    - term: ClassificationRef
+      definition: A reference to a controlled classification value identified by a URI plus localized term label.
+      tags: [classification, reference, pure]
+    - term: LocalizedString
+      definition: A map of string values keyed by submission locale (e.g. en_GB).
+      tags: [localization, pure]
+    - term: Visibility
+      definition: Access-control level of a record - FREE, CAMPUS, RESTRICTED, or CONFIDENTIAL.
+      tags: [access, pure]
+    - term: api-key
+      definition: Security scheme - all Pure Web Service requests require an API key in the context of a defined user.
+      tags: [security, authentication, pure]
+    - term: OAI-PMH
+      definition: Open Archives Initiative Protocol for Metadata Harvesting 2.0, exposed at /ws/oai for the institutional repository.
+      tags: [protocol, harvesting, repository]
+    - term: earliestDatestamp
+      definition: Oldest record datestamp in the repository - 2016-12-19T14:57:28Z for CityUHK Scholars.
+      tags: [oai-pmh, metadata]

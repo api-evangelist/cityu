@@ -1,0 +1,24 @@
+{
+  "pureId": 200987654,
+  "uuid": "b2c3d4e5-0000-4f00-9abc-000000000002",
+  "createdDate": "2017-09-01T08:00:00.000Z",
+  "modifiedDate": "2024-01-15T14:22:10.000Z",
+  "portalUrl": "https://scholars.cityu.edu.hk/en/persons/b2c3d4e5-0000-4f00-9abc-000000000002",
+  "version": "1",
+  "name": {
+    "firstName": "Example",
+    "lastName": "Researcher"
+  },
+  "orcid": "0000-0002-1825-0097",
+  "orcidAuthenticated": true,
+  "nationality": {
+    "uri": "/dk/atira/pure/core/nationalities/hk",
+    "term": { "en_GB": "Hong Kong" }
+  },
+  "mainResearchArea": {
+    "uri": "/dk/atira/pure/subjectarea/asjc/1700",
+    "term": { "en_GB": "Computer Science" }
+  },
+  "willingToTakePhdStudents": true,
+  "profiled": true
+}

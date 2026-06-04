@@ -1,0 +1,54 @@
+formats: [oas3]
+documentationUrl: https://scholars.cityu.edu.hk/
+rules:
+  cityu-info-version-present:
+    description: API info must declare a version (Pure ships e.g. 5.35.1-2).
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+
+  cityu-api-key-security:
+    description: The Pure Web Service is gated and must define an api-key security scheme.
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      field: api-key
+      function: truthy
+
+  cityu-server-ws-api-base:
+    description: Server base path should be the Pure web service base /ws/api.
+    severity: warn
+    given: $.servers[*]
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "^/ws/api$"
+
+  cityu-operation-id-present:
+    description: Every operation should expose an operationId (Pure uses resource_verb form).
+    severity: warn
+    given: $.paths[*][get,put,post,delete]
+    then:
+      field: operationId
+      function: truthy
+
+  cityu-list-results-paged:
+    description: List result schemas should expose count and pageInformation for paging.
+    severity: warn
+    given: $.components.schemas[?(@property.match(/ListResult$/))].properties
+    then:
+      - field: count
+        function: truthy
+      - field: pageInformation
+        function: truthy
+
+  cityu-entities-have-uuid:
+    description: Core Pure entities are identified by a stable uuid.
+    severity: info
+    given: $.components.schemas.ResearchOutput.properties
+    then:
+      field: uuid
+      function: truthy

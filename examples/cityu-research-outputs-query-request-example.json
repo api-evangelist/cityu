@@ -1,0 +1,14 @@
+{
+  "size": 10,
+  "offset": 0,
+  "orderings": ["-modified"],
+  "publicationStatuses": ["published"],
+  "publishedAfterDate": "2023-01-01",
+  "fields": [
+    "uuid",
+    "title.*",
+    "type.*",
+    "totalNumberOfContributors",
+    "portalUrl"
+  ]
+}
