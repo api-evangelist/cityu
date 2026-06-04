@@ -1,0 +1,43 @@
+---
+name: City University of Hong Kong
+description: City University of Hong Kong public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      City University of Hong Kong (QS World 2025 #55) has a limited public,
+      documented API footprint. The single openly verifiable API is the CityUHK
+      Scholars OAI-PMH endpoint (Elsevier Pure), which I confirmed live: a
+      verb=Identify request returns HTTP 200 with repositoryName "CityUHK
+      Scholars", protocolVersion 2.0, adminEmail esuschr1@cityu.edu.hk, and
+      records from 2016-12-19 onward. The associated Pure REST Web Service
+      (/ws/api) is OpenAPI 3-described but gated, returning HTTP 401 without an
+      API key, so it is cataloged as gated rather than open. The official GitHub
+      organization (github.com/cityu) exists and is location-tagged Hong Kong
+      but publishes zero public repositories. No public open-data portal,
+      course/timetable API, status page, or developer portal was confirmed for
+      the institution itself; core systems (AIMS, CAP, Canvas, CityUHK Portal)
+      are authenticated and undocumented publicly. No endpoints were fabricated;
+      every URL below was probed.
+    endpoints:
+      - url: https://www.cityu.edu.hk/
+        status: 200
+        note: Official institution website, confirmed live.
+      - url: https://scholars.cityu.edu.hk/
+        status: 200
+        note: CityUHK Scholars (Elsevier Pure) public research portal.
+      - url: https://scholars.cityu.edu.hk/ws/oai?verb=Identify
+        status: 200
+        note: Public OAI-PMH endpoint; Identify returns "CityUHK Scholars", protocol 2.0.
+      - url: https://scholars.cityu.edu.hk/ws/api
+        status: 401
+        note: Pure REST Web Service; OpenAPI 3 described but requires API key (gated).
+      - url: https://github.com/cityu
+        status: 200
+        note: Official GitHub org, Hong Kong, cityu.edu.hk; zero public repositories.
+      - url: https://hk.linkedin.com/school/cityu/
+        status: 200
+        note: Official LinkedIn school page.

@@ -1,0 +1,88 @@
+---
+aid: cityu
+name: City University of Hong Kong
+description: >-
+  City University of Hong Kong (CityUHK) is a publicly funded research
+  university located at Tat Chee Avenue, Kowloon, Hong Kong SAR, ranked #55 in
+  the QS World University Rankings 2025. Its public, machine-readable developer
+  footprint is modest and centered on its research information system: CityUHK
+  Scholars, an Elsevier Pure-powered current research information system and
+  institutional repository that exposes a publicly harvestable OAI-PMH endpoint.
+  An official GitHub organization (github.com/cityu) exists but currently
+  publishes no public repositories, and the university operates internal
+  identity, portal, and learning systems (AIMS, CAP, Canvas, CityUHK Portal)
+  that are gated and not publicly documented as APIs.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Institutional Repository
+  - OAI-PMH
+  - Hong Kong
+  - China
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: cityu:scholars-oai
+    name: CityUHK Scholars OAI-PMH
+    description: >-
+      Public OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting,
+      version 2.0) endpoint for CityUHK Scholars, the university's Elsevier
+      Pure-powered research information system and institutional repository. The
+      Identify verb returns repository name "CityUHK Scholars", with metadata
+      records available from December 2016 onward. Supports standard OAI-PMH
+      verbs (Identify, ListMetadataFormats, ListSets, ListIdentifiers,
+      ListRecords, GetRecord). No authentication required.
+    humanURL: https://scholars.cityu.edu.hk/
+    baseURL: https://scholars.cityu.edu.hk/ws/oai
+    tags: [ Research, Institutional Repository, OAI-PMH, Metadata, Pure ]
+    properties:
+      - type: Documentation
+        url: https://scholars.cityu.edu.hk/
+      - type: Authentication
+        url: https://scholars.cityu.edu.hk/ws/oai?verb=Identify
+  - aid: cityu:scholars-pure-ws
+    name: CityUHK Scholars Pure Web Service (REST)
+    description: >-
+      Elsevier Pure REST Web Service backing CityUHK Scholars, an OpenAPI
+      3-described CRUD API (GET/PUT/POST/DELETE) for research output, projects,
+      persons and related entities. The service is gated: requests require an
+      API key in the context of a defined user, and the endpoint returns HTTP
+      401 Unauthorized without credentials. The OpenAPI contract is served from
+      the instance (/ws/api/openapi.yaml) and an interactive RapiDoc page
+      (/ws/api/rapidoc.html) but both require authorization. Not openly
+      available; listed for completeness.
+    humanURL: https://scholars.cityu.edu.hk/
+    tags: [ Research, REST, Pure, OpenAPI, Gated ]
+    properties:
+      - type: Documentation
+        url: https://scholars.cityu.edu.hk/
+      - type: Authentication
+        url: https://scholars.cityu.edu.hk/ws/api
+common:
+  - type: Website
+    url: https://www.cityu.edu.hk/
+  - type: GitHub
+    url: https://github.com/cityu
+  - type: LinkedIn
+    url: https://hk.linkedin.com/school/cityu/
+  - type: DeveloperPortal
+    url: https://scholars.cityu.edu.hk/
+  - type: Plans
+    url: plans/cityu-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/cityu-rate-limits.yml
+  - type: FinOps
+    url: finops/cityu-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
