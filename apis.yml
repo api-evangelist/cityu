@@ -77,6 +77,10 @@ apis:
       - type: x-json-ld
         url: json-ld/cityu-context.jsonld
 common:
+  - type: DomainSecurity
+    url: security/cityu-domain-security.yml
+  - type: Authentication
+    url: authentication/cityu-authentication.yml
   - type: Website
     url: https://www.cityu.edu.hk/
   - type: GitHub
