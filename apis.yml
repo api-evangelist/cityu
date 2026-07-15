@@ -77,6 +77,8 @@ apis:
       - type: x-json-ld
         url: json-ld/cityu-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/cityu-agentic-access.yml
   - type: DomainSecurity
     url: security/cityu-domain-security.yml
   - type: Authentication
