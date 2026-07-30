@@ -13,9 +13,22 @@ description: >-
   identity, portal, and learning systems (AIMS, CAP, Canvas, CityUHK Portal)
   that are gated and not publicly documented as APIs.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cityu.png
 url: https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/apis.yml
 tags:
   - Education
@@ -30,52 +43,787 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: cityu:scholars-oai
-    name: CityUHK Scholars OAI-PMH
-    description: >-
-      Public OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting,
-      version 2.0) endpoint for CityUHK Scholars, the university's Elsevier
-      Pure-powered research information system and institutional repository. The
-      Identify verb returns repository name "CityUHK Scholars", with metadata
-      records available from December 2016 onward. Supports standard OAI-PMH
-      verbs (Identify, ListMetadataFormats, ListSets, ListIdentifiers,
-      ListRecords, GetRecord). No authentication required.
-    humanURL: https://scholars.cityu.edu.hk/
-    baseURL: https://scholars.cityu.edu.hk/ws/oai
-    tags: [ Research, Institutional Repository, OAI-PMH, Metadata, Pure ]
-    properties:
-      - type: Documentation
-        url: https://scholars.cityu.edu.hk/
-      - type: Authentication
-        url: https://scholars.cityu.edu.hk/ws/oai?verb=Identify
-  - aid: cityu:scholars-pure-ws
-    name: CityUHK Scholars Pure Web Service (REST)
-    description: >-
-      Elsevier Pure REST Web Service backing CityUHK Scholars, an OpenAPI
-      3-described CRUD API (GET/PUT/POST/DELETE) for research output, projects,
-      persons and related entities. The service is gated: requests require an
-      API key in the context of a defined user, and the endpoint returns HTTP
-      401 Unauthorized without credentials. The OpenAPI contract is served from
-      the instance (/ws/api/openapi.yaml) and an interactive RapiDoc page
-      (/ws/api/rapidoc.html) but both require authorization. Not openly
-      available; listed for completeness.
-    humanURL: https://scholars.cityu.edu.hk/
-    tags: [ Research, REST, Pure, OpenAPI, Gated ]
-    properties:
-      - type: Documentation
-        url: https://scholars.cityu.edu.hk/
-      - type: Authentication
-        url: https://scholars.cityu.edu.hk/ws/api
-      - type: OpenAPI
-        url: openapi/cityu-scholars-pure-ws.yaml
-      - type: x-json-schema
-        url: json-schema/cityu-research-output-schema.json
-      - type: x-vocabulary
-        url: vocabulary/cityu-vocabulary.yml
-      - type: x-rules
-        url: rules/cityu-rules.yml
-      - type: x-json-ld
-        url: json-ld/cityu-context.jsonld
+- aid: cityu:scholars-oai
+  name: CityUHK Scholars OAI-PMH
+  description: >-
+    Public OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting, version 2.0) endpoint for
+    CityUHK Scholars, the university's Elsevier Pure-powered research information system and institutional
+    repository. The Identify verb returns repository name "CityUHK Scholars", with metadata records available
+    from December 2016 onward. Supports standard OAI-PMH verbs (Identify, ListMetadataFormats, ListSets,
+    ListIdentifiers, ListRecords, GetRecord). No authentication required.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - Research
+  - Institutional Repository
+  - OAI-PMH
+  - Metadata
+  - Pure
+  properties:
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/oai?verb=Identify
+- aid: cityu:cityu-activity-api
+  name: City University of Hong Kong activity API
+  description: The activity API from City University of Hong Kong — 38 operation(s) for activity.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - activity
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-activity-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-application-api
+  name: City University of Hong Kong application API
+  description: The application API from City University of Hong Kong — 36 operation(s) for application.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - application
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-application-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-authorcollaboration-api
+  name: City University of Hong Kong authorCollaboration API
+  description: >-
+    The authorCollaboration API from City University of Hong Kong — 9 operation(s) for authorcollaboration.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - authorCollaboration
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-authorcollaboration-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-award-api
+  name: City University of Hong Kong award API
+  description: The award API from City University of Hong Kong — 36 operation(s) for award.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - award
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-award-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-classificationscheme-api
+  name: City University of Hong Kong classificationScheme API
+  description: >-
+    The classificationScheme API from City University of Hong Kong — 7 operation(s) for classificationscheme.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - classificationScheme
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-classificationscheme-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-concept-api
+  name: City University of Hong Kong concept API
+  description: The concept API from City University of Hong Kong — 4 operation(s) for concept.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - concept
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-concept-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-course-api
+  name: City University of Hong Kong course API
+  description: The course API from City University of Hong Kong — 27 operation(s) for course.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - course
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-course-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-dataset-api
+  name: City University of Hong Kong dataSet API
+  description: The dataSet API from City University of Hong Kong — 29 operation(s) for dataset.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - dataSet
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-dataset-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-education-api
+  name: City University of Hong Kong education API
+  description: The education API from City University of Hong Kong — 14 operation(s) for education.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - education
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-education-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-equipment-api
+  name: City University of Hong Kong equipment API
+  description: The equipment API from City University of Hong Kong — 26 operation(s) for equipment.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - equipment
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-equipment-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-ethicalreview-api
+  name: City University of Hong Kong ethicalReview API
+  description: >-
+    The ethicalReview API from City University of Hong Kong — 22 operation(s) for ethicalreview.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - ethicalReview
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-ethicalreview-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-event-api
+  name: City University of Hong Kong event API
+  description: The event API from City University of Hong Kong — 21 operation(s) for event.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - event
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-event-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-externalorganization-api
+  name: City University of Hong Kong externalOrganization API
+  description: >-
+    The externalOrganization API from City University of Hong Kong — 29 operation(s) for externalorganization.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - externalOrganization
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-externalorganization-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-externalperson-api
+  name: City University of Hong Kong externalPerson API
+  description: >-
+    The externalPerson API from City University of Hong Kong — 22 operation(s) for externalperson.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - externalPerson
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-externalperson-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-fingerprint-api
+  name: City University of Hong Kong fingerprint API
+  description: The fingerprint API from City University of Hong Kong — 3 operation(s) for fingerprint.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - fingerprint
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-fingerprint-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-fundingopportunity-api
+  name: City University of Hong Kong fundingOpportunity API
+  description: >-
+    The fundingOpportunity API from City University of Hong Kong — 21 operation(s) for fundingopportunity.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - fundingOpportunity
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-fundingopportunity-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-impact-api
+  name: City University of Hong Kong impact API
+  description: The impact API from City University of Hong Kong — 31 operation(s) for impact.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - impact
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-impact-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-journal-api
+  name: City University of Hong Kong journal API
+  description: The journal API from City University of Hong Kong — 22 operation(s) for journal.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - journal
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-journal-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-keywordgroupconfiguration-api
+  name: City University of Hong Kong keywordGroupConfiguration API
+  description: >-
+    The keywordGroupConfiguration API from City University of Hong Kong — 7 operation(s) for keywordgroupconfiguration.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - keywordGroupConfiguration
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-keywordgroupconfiguration-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-milestone-api
+  name: City University of Hong Kong milestone API
+  description: The milestone API from City University of Hong Kong — 24 operation(s) for milestone.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - milestone
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-milestone-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-organization-api
+  name: City University of Hong Kong organization API
+  description: >-
+    The organization API from City University of Hong Kong — 33 operation(s) for organization.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - organization
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-organization-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-person-api
+  name: City University of Hong Kong person API
+  description: The person API from City University of Hong Kong — 57 operation(s) for person.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - person
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-person-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-pressmedia-api
+  name: City University of Hong Kong pressMedia API
+  description: The pressMedia API from City University of Hong Kong — 24 operation(s) for pressmedia.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - pressMedia
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-pressmedia-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-prize-api
+  name: City University of Hong Kong prize API
+  description: The prize API from City University of Hong Kong — 28 operation(s) for prize.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - prize
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-prize-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-project-api
+  name: City University of Hong Kong project API
+  description: The project API from City University of Hong Kong — 33 operation(s) for project.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - project
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-project-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-publisher-api
+  name: City University of Hong Kong publisher API
+  description: The publisher API from City University of Hong Kong — 18 operation(s) for publisher.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - publisher
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-publisher-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-researchoutput-api
+  name: City University of Hong Kong researchOutput API
+  description: >-
+    The researchOutput API from City University of Hong Kong — 66 operation(s) for researchoutput.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - researchOutput
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-researchoutput-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-role-api
+  name: City University of Hong Kong role API
+  description: The role API from City University of Hong Kong — 2 operation(s) for role.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - role
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-role-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-semester-api
+  name: City University of Hong Kong semester API
+  description: The semester API from City University of Hong Kong — 8 operation(s) for semester.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - semester
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-semester-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-specialization-api
+  name: City University of Hong Kong specialization API
+  description: >-
+    The specialization API from City University of Hong Kong — 8 operation(s) for specialization.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - specialization
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-specialization-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-studentproject-api
+  name: City University of Hong Kong studentProject API
+  description: >-
+    The studentProject API from City University of Hong Kong — 26 operation(s) for studentproject.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - studentProject
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-studentproject-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-studentthesis-api
+  name: City University of Hong Kong studentThesis API
+  description: >-
+    The studentThesis API from City University of Hong Kong — 26 operation(s) for studentthesis.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - studentThesis
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-studentthesis-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-thesaurus-api
+  name: City University of Hong Kong thesaurus API
+  description: The thesaurus API from City University of Hong Kong — 5 operation(s) for thesaurus.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - thesaurus
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-thesaurus-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
+- aid: cityu:cityu-user-api
+  name: City University of Hong Kong user API
+  description: The user API from City University of Hong Kong — 7 operation(s) for user.
+  humanURL: https://scholars.cityu.edu.hk/
+  baseURL: https://scholars.cityu.edu.hk/ws/oai
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/cityu-user-api-openapi.yml
+  - type: Documentation
+    url: https://scholars.cityu.edu.hk/
+  - type: Authentication
+    url: https://scholars.cityu.edu.hk/ws/api
+  - type: x-json-schema
+    url: json-schema/cityu-research-output-schema.json
+  - type: x-vocabulary
+    url: vocabulary/cityu-vocabulary.yml
+  - type: x-rules
+    url: rules/cityu-rules.yml
+  - type: x-json-ld
+    url: json-ld/cityu-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/cityu-agentic-access.yml
