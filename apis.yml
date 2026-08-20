@@ -70,6 +70,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Activity
+  tags_raw:
   - activity
   properties:
   - type: OpenAPI
@@ -92,6 +94,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Application
+  tags_raw:
   - application
   properties:
   - type: OpenAPI
@@ -114,7 +118,8 @@ apis:
     The authorCollaboration API from City University of Hong Kong — 9 operation(s) for authorcollaboration.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - authorCollaboration
   properties:
   - type: OpenAPI
@@ -159,7 +164,8 @@ apis:
     The classificationScheme API from City University of Hong Kong — 7 operation(s) for classificationscheme.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - classificationScheme
   properties:
   - type: OpenAPI
@@ -226,6 +232,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Dataset
+  tags_raw:
   - dataSet
   properties:
   - type: OpenAPI
@@ -248,6 +256,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Education
+  tags_raw:
   - education
   properties:
   - type: OpenAPI
@@ -270,6 +280,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Equipment
+  tags_raw:
   - equipment
   properties:
   - type: OpenAPI
@@ -292,7 +304,8 @@ apis:
     The ethicalReview API from City University of Hong Kong — 22 operation(s) for ethicalreview.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - ethicalReview
   properties:
   - type: OpenAPI
@@ -315,6 +328,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Event
+  tags_raw:
   - event
   properties:
   - type: OpenAPI
@@ -337,7 +352,8 @@ apis:
     The externalOrganization API from City University of Hong Kong — 29 operation(s) for externalorganization.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - externalOrganization
   properties:
   - type: OpenAPI
@@ -360,7 +376,8 @@ apis:
     The externalPerson API from City University of Hong Kong — 22 operation(s) for externalperson.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - externalPerson
   properties:
   - type: OpenAPI
@@ -405,7 +422,8 @@ apis:
     The fundingOpportunity API from City University of Hong Kong — 21 operation(s) for fundingopportunity.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - fundingOpportunity
   properties:
   - type: OpenAPI
@@ -428,6 +446,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Impact
+  tags_raw:
   - impact
   properties:
   - type: OpenAPI
@@ -472,7 +492,8 @@ apis:
     The keywordGroupConfiguration API from City University of Hong Kong — 7 operation(s) for keywordgroupconfiguration.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - keywordGroupConfiguration
   properties:
   - type: OpenAPI
@@ -518,6 +539,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Organization
+  tags_raw:
   - organization
   properties:
   - type: OpenAPI
@@ -540,6 +563,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Persons
+  tags_raw:
   - person
   properties:
   - type: OpenAPI
@@ -561,7 +586,8 @@ apis:
   description: The pressMedia API from City University of Hong Kong — 24 operation(s) for pressmedia.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - pressMedia
   properties:
   - type: OpenAPI
@@ -606,6 +632,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Project
+  tags_raw:
   - project
   properties:
   - type: OpenAPI
@@ -628,6 +656,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Publishers
+  tags_raw:
   - publisher
   properties:
   - type: OpenAPI
@@ -650,7 +680,8 @@ apis:
     The researchOutput API from City University of Hong Kong — 66 operation(s) for researchoutput.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - researchOutput
   properties:
   - type: OpenAPI
@@ -673,6 +704,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - Role
+  tags_raw:
   - role
   properties:
   - type: OpenAPI
@@ -740,7 +773,8 @@ apis:
     The studentProject API from City University of Hong Kong — 26 operation(s) for studentproject.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - studentProject
   properties:
   - type: OpenAPI
@@ -763,7 +797,8 @@ apis:
     The studentThesis API from City University of Hong Kong — 26 operation(s) for studentthesis.
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
-  tags:
+  tags: []
+  tags_raw:
   - studentThesis
   properties:
   - type: OpenAPI
@@ -808,6 +843,8 @@ apis:
   humanURL: https://scholars.cityu.edu.hk/
   baseURL: https://scholars.cityu.edu.hk/ws/oai
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
