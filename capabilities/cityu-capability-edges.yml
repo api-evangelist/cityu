@@ -1,0 +1,25 @@
+slug: cityu
+provider: City University of Hong Kong
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: user
+  spec_file: cityu-user-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: POST /users/{uuid}/actions/reset-password  user_resetPassword  Reset user password; PUT /users/{uuid}/roles  user_update_roles_for_user  Updates
+    roles; schemas GlobalRoleAssignment, LocalRoleAssignment
+  reason: Full user account lifecycle plus password reset and role assignment is identity and access management
+    for the Pure system. Not HR employee records — these are system accounts with role grants.
