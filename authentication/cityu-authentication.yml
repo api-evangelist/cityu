@@ -1,16 +1,125 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/cityu-scholars-pure-ws.yaml
+---
+generated: '2026-08-30'
+method: probed
+source: >-
+  Live HTTP probes of CityUHK identity hosts on 2026-08-30, plus the eduGAIN
+  entity database (technical.edugain.org) for the HKAF federation registration.
+note: >-
+  This file replaces a 2026-07-11 version whose only source was the Elsevier Pure
+  web-service OpenAPI (openapi/cityu-scholars-pure-ws.yaml). That contract is
+  Elsevier's, not CityUHK's, and was removed on 2026-08-30 under the university
+  pipeline's operator-attribution rule. What is recorded here is only what
+  CityUHK itself operates or tenants.
 summary:
   types:
-  - apiKey
-  api_key_in:
-  - header
+  - saml
+  - oidc
+  - oauth2
+  - anonymous
+  federations:
+  - HKAF (Hong Kong Access Federation, JUCC) — in eduGAIN production since 2018-03-15
+  - eduGAIN
 schemes:
-- name: api-key
-  type: apiKey
-  in: header
-  parameter: api-key
-  description: Security mechanism for the API
-  sources:
-  - openapi/cityu-scholars-pure-ws.yaml
+- name: shibboleth-idp
+  type: saml
+  x-operator: institution
+  description: >-
+    CityUHK's own Shibboleth Identity Provider. Publishes SAML 2.0 + SAML 1.1
+    IdP metadata at its well-known metadata URL and carries both an
+    IDPSSODescriptor and an AttributeAuthorityDescriptor. Registered in eduGAIN
+    through the Hong Kong Access Federation (registrationAuthority
+    https://hkaf.edu.hk) under the display name "City University of Hong Kong".
+  entity_id: https://idp2.cityu.edu.hk/idp/shibboleth
+  metadata_url: https://idp2.cityu.edu.hk/idp/shibboleth
+  metadata_file: authentication/cityu-shibboleth-idp-metadata.xml
+  protocols:
+  - urn:oasis:names:tc:SAML:2.0:protocol
+  - urn:oasis:names:tc:SAML:1.1:protocol
+  - urn:mace:shibboleth:1.0
+  endpoints:
+  - service: SingleSignOnService
+    binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+    location: https://idp2.cityu.edu.hk/idp/profile/SAML2/Redirect/SSO
+  - service: SingleSignOnService
+    binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+    location: https://idp2.cityu.edu.hk/idp/profile/SAML2/POST/SSO
+  - service: SingleLogoutService
+    binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+    location: https://idp2.cityu.edu.hk/idp/profile/SAML2/Redirect/SLO
+  - service: AttributeService
+    binding: urn:oasis:names:tc:SAML:2.0:bindings:SOAP
+    location: https://idp2.cityu.edu.hk:8443/idp/profile/SAML2/SOAP/AttributeQuery
+  observations:
+  - >-
+    The shibmd:Scope element in the published metadata still carries the
+    Shibboleth distribution's default value "example.org" rather than
+    cityu.edu.hk. Recorded as observed; not corrected here.
+  probed:
+  - url: https://idp2.cityu.edu.hk/idp/shibboleth
+    status: 200
+    content_type: application/xml;charset=utf-8
+    bytes: 14703
+- name: cityu-okta-oidc
+  type: oidc
+  x-operator: tenant
+  description: >-
+    CityUHK's OpenID Connect / OAuth 2.0 authorization server, served on the
+    university's own hostname auth.cityu.edu.hk, which CNAMEs to
+    cityu.customdomains.okta.com. The issuer is https://auth.cityu.edu.hk. This
+    is CityUHK's tenant of Okta, not software CityUHK wrote; the discovery
+    document is the OpenID Connect Discovery 1.0 standard, and the configuration
+    in it is CityUHK's.
+  issuer: https://auth.cityu.edu.hk
+  discovery_url: https://auth.cityu.edu.hk/.well-known/openid-configuration
+  oauth_metadata_url: https://auth.cityu.edu.hk/.well-known/oauth-authorization-server
+  jwks_uri: https://auth.cityu.edu.hk/oauth2/v1/keys
+  authorization_endpoint: https://auth.cityu.edu.hk/oauth2/v1/authorize
+  token_endpoint: https://auth.cityu.edu.hk/oauth2/v1/token
+  userinfo_endpoint: https://auth.cityu.edu.hk/oauth2/v1/userinfo
+  scopes_supported:
+  - openid
+  - email
+  - profile
+  - address
+  - phone
+  - offline_access
+  - groups
+  id_token_signing_alg_values_supported:
+  - RS256
+  probed:
+  - url: https://auth.cityu.edu.hk/.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    bytes: 2804
+  - url: https://auth.cityu.edu.hk/.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    bytes: 4165
+  - url: https://auth.cityu.edu.hk/oauth2/v1/keys
+    status: 200
+- name: cityu-okta-saml-canvas
+  type: saml
+  x-operator: tenant
+  description: >-
+    SAML 2.0 IdP metadata for the CityUHK Canvas application, served from the
+    university's Okta tenant. Reached by following canvas.cityu.edu.hk, which
+    redirects unauthenticated traffic to auth.cityu.edu.hk with a SAMLRequest.
+  metadata_url: https://auth.cityu.edu.hk/app/exk1h9fleyX6q1zrz5d7/sso/saml/metadata
+  entity_id: http://www.okta.com/exk1h9fleyX6q1zrz5d7
+  probed:
+  - url: https://auth.cityu.edu.hk/app/exk1h9fleyX6q1zrz5d7/sso/saml/metadata
+    status: 200
+    content_type: application/samlmetadata+xml
+    bytes: 2619
+- name: scholars-oai-anonymous
+  type: anonymous
+  x-operator: tenant
+  description: >-
+    The CityUHK Scholars OAI-PMH endpoint requires no authentication. The
+    companion Pure REST web service at /ws/api is gated by an api-key header
+    scheme defined in Elsevier's own contract; that contract is not held in this
+    repository.
+  probed:
+  - url: https://scholars.cityu.edu.hk/ws/oai?verb=Identify
+    status: 200
+    content_type: application/xml
