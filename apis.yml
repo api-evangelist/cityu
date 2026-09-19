@@ -116,6 +116,12 @@ apis:
   tags:
   - Research
   - Institutional Repository
+  - CRI
+  - Pure
+  - Gated
+  tags_raw:
+  - Research
+  - Institutional Repository
   - CRIS
   - Pure
   - Gated
@@ -141,6 +147,12 @@ apis:
   humanURL: https://idp2.cityu.edu.hk/idp/shibboleth
   baseURL: https://idp2.cityu.edu.hk/idp
   tags:
+  - Identity Federation
+  - SAML
+  - Shibboleth
+  - eduGAIN
+  - SSO
+  tags_raw:
   - Identity Federation
   - SAML
   - Shibboleth
@@ -172,7 +184,7 @@ apis:
   - Identity
   - OpenID Connect
   - Authentication
-  - Single Sign-On
+  - SSO
   tags_raw:
   - Identity
   - OpenID Connect
