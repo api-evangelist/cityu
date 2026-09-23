@@ -3,8 +3,69 @@ name: City University of Hong Kong
 description: City University of Hong Kong public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
+  - date: '2026-08-30'
+    rating: 2
+    summary: >-
+      Re-profiled under the API Evangelist university pipeline, which settles
+      WHO OPERATES a surface before saving any contract. The 34 OpenAPI
+      definitions this repository held were not CityUHK's. Every one carried
+      info.title "Pure <resource> API", info.contact pure-support@elsevier.com
+      and servers ["/ws/api"] — Elsevier's generic Pure API 5.35.1-2 product
+      contract, shipped identically by at least nine other institutions in the
+      cohort, split into 34 per-tag documents by our own refine step and then
+      into 34 apis[] entries. DNS settles it independently: scholars.cityu.edu.hk
+      is a CNAME to cityu.elsevierpure.com. Those 34 specs plus the 84
+      collections, schemas, structures, examples, rules, vocabularies, JSON-LD
+      contexts, capability edges and agentic-access files derived from them —
+      118 files — were removed, and the Pure deployment is now recorded once as
+      a tenant relationship. What survived scrutiny, and what was newly found:
+      the OAI-PMH endpoint is real and open (Identify, ListMetadataFormats and
+      ListSets all 200, with persons, publications, student theses, datasets and
+      an OpenAIRE set, and ORCID iDs inline in the harvested Dublin Core); and
+      CityUHK operates its OWN Shibboleth Identity Provider at
+      idp2.cityu.edu.hk, publishing live SAML 2.0 IdP metadata and registered in
+      eduGAIN through the Hong Kong Access Federation. Single sign-on is an Okta
+      tenant on auth.cityu.edu.hk serving public OIDC Discovery and RFC 8414
+      metadata; Canvas is an Instructure tenant. CityUHK's IT Services runs a
+      genuine internal API gateway and API management practice on MuleSoft
+      Anypoint, but none of it is public and there is no developer portal. The
+      whole www.cityu.edu.hk estate sits behind an Imperva bot challenge that
+      returns 200 with a challenge body on every deep path. Corrected footprint:
+      one institution-operated machine-readable contract, four tenant surfaces,
+      zero fabricated endpoints. The score should fall, and that is the point.
+    endpoints:
+      - url: https://scholars.cityu.edu.hk/ws/oai?verb=Identify
+        status: 200
+        note: OAI-PMH 2.0; repositoryName "CityUHK Scholars"; earliest record 2016-12-19.
+      - url: https://scholars.cityu.edu.hk/ws/oai?verb=ListSets
+        status: 200
+        note: persons, publications, studenttheses, datasets, openaire sets.
+      - url: https://scholars.cityu.edu.hk/ws/api/openapi.yaml
+        status: 200
+        note: Elsevier's generic Pure API 5.35.1-2 contract. Vendor — not stored here.
+      - url: https://idp2.cityu.edu.hk/idp/shibboleth
+        status: 200
+        note: CityUHK's own Shibboleth SAML 2.0 IdP metadata. Institution-operated.
+      - url: https://auth.cityu.edu.hk/.well-known/openid-configuration
+        status: 200
+        note: OIDC Discovery; issuer https://auth.cityu.edu.hk. Okta tenant.
+      - url: https://auth.cityu.edu.hk/.well-known/oauth-authorization-server
+        status: 200
+        note: RFC 8414 authorization-server metadata.
+      - url: https://canvas.cityu.edu.hk/
+        status: 200
+        note: CNAME to cityuhk-vanity.instructure.com; redirects to Okta with a SAMLRequest.
+      - url: https://api.github.com/orgs/cityu/repos
+        status: 200
+        note: Empty array. The official GitHub org has zero public repositories.
+      - url: https://www.cityu.edu.hk/its/services-facilities/api-gateway-and-api-management
+        status: 200
+        note: Imperva/Incapsula bot challenge body; page exists but is unreadable to us.
+      - url: https://data.cityu.edu.hk/
+        status: 0
+        note: NXDOMAIN. No open-data portal.
   - date: '2026-06-03'
     rating: 2
     summary: >-

@@ -1,0 +1,109 @@
+---
+generated: '2026-08-30'
+method: probed
+source: >-
+  Live probes of CityUHK-operated and CityUHK-tenanted hosts on 2026-08-30,
+  plus the eduGAIN entity database at technical.edugain.org.
+regime: education
+note: >-
+  Reward-only. Only standards with a fetched, quotable artifact are listed. A
+  standard CityUHK is silent on is absent from this file rather than recorded as
+  a failure.
+standards:
+- standard: oai-pmh
+  status: conformant
+  x-operator: tenant
+  evidence:
+    location: https://scholars.cityu.edu.hk/ws/oai?verb=Identify
+    status: 200
+    detail: >-
+      OAI-PMH 2.0 response. repositoryName "CityUHK Scholars", baseURL
+      https://scholars.cityu.edu.hk/ws/oai, protocolVersion 2.0, adminEmail
+      esuschr1@cityu.edu.hk, earliestDatestamp 2016-12-19T14:57:28Z,
+      granularity YYYY-MM-DDThh:mm:ssZ, deletedRecord "no".
+  supporting:
+  - location: https://scholars.cityu.edu.hk/ws/oai?verb=ListMetadataFormats
+    status: 200
+    detail: Advertises metadataPrefix values including oai_dc, qdc, mods, nl_didl.
+  - location: https://scholars.cityu.edu.hk/ws/oai?verb=ListSets
+    status: 200
+    detail: >-
+      Exposes persons:all, publications:all, studenttheses:all, datasets:all and
+      an "openaire" set, plus per-year publication and thesis sets from 1961.
+- standard: orcid
+  status: conformant
+  x-operator: tenant
+  evidence:
+    location: https://scholars.cityu.edu.hk/ws/oai?verb=ListRecords&metadataPrefix=oai_dc&set=datasets:all
+    status: 200
+    detail: >-
+      Author records in the harvested Dublin Core carry ORCID iDs inline in the
+      creator field, e.g. "orcid 0000-0002-2886-2513", "orcid 0000-0002-8021-8127".
+      61 ORCID occurrences in a single ListRecords page.
+- standard: shibboleth
+  status: conformant
+  x-operator: institution
+  evidence:
+    location: https://idp2.cityu.edu.hk/idp/shibboleth
+    status: 200
+    detail: >-
+      Shibboleth IdP metadata served from CityUHK's own host. entityID
+      https://idp2.cityu.edu.hk/idp/shibboleth, protocolSupportEnumeration
+      includes urn:mace:shibboleth:1.0, and the entity carries both an
+      IDPSSODescriptor and an AttributeAuthorityDescriptor.
+  supporting:
+  - location: https://technical.edugain.org/api.php?action=list_entities&e_id=cityu&search_type=entityid
+    status: 200
+    detail: >-
+      eduGAIN lists https://idp2.cityu.edu.hk/idp/shibboleth with displayName
+      "City University of Hong Kong" and registrationAuthority
+      https://hkaf.edu.hk (Hong Kong Access Federation, in eduGAIN production
+      since 2018-03-15).
+- standard: saml
+  status: conformant
+  x-operator: institution
+  evidence:
+    location: https://idp2.cityu.edu.hk/idp/shibboleth
+    status: 200
+    detail: >-
+      SAML 2.0 and SAML 1.1 protocol support declared. SingleSignOnService
+      bindings HTTP-Redirect and HTTP-POST at
+      https://idp2.cityu.edu.hk/idp/profile/SAML2/{Redirect,POST}/SSO;
+      SingleLogoutService and a SOAP AttributeService at
+      https://idp2.cityu.edu.hk:8443/idp/profile/SAML2/SOAP/AttributeQuery.
+  supporting:
+  - location: https://auth.cityu.edu.hk/app/exk1h9fleyX6q1zrz5d7/sso/saml/metadata
+    status: 200
+    detail: >-
+      A second SAML 2.0 IdP metadata document, for the CityUHK Canvas
+      application, served from CityUHK's Okta tenant at auth.cityu.edu.hk.
+  - location: https://technical.edugain.org/api.php?action=list_entities&e_id=cityu&search_type=entityid
+    status: 200
+    detail: >-
+      CityUHK also registers a SAML service provider in HKAF —
+      https://www.cityu.edu.hk/sklmp/booking, "SKLMP Facility Booking System".
+not_found:
+- standard: lti
+  detail: >-
+    CityUHK runs Canvas (canvas.cityu.edu.hk CNAMEs to
+    cityuhk-vanity.instructure.com), which supports LTI, but no CityUHK LTI
+    registration, tool configuration, or platform document is publicly readable.
+- standard: scim
+  detail: No SCIM service-provider-config document is publicly reachable.
+- standard: oneroster
+  detail: No OneRoster endpoint or claim found.
+- standard: caliper
+  detail: No Caliper endpoint or claim found.
+- standard: qti
+  detail: No QTI artifact found.
+- standard: ed-fi
+  detail: Not applicable in the Hong Kong system; no Ed-Fi artifact found.
+- standard: datacite
+  detail: >-
+    DOIs appear in CityUHK Scholars records, but they are publisher-minted
+    (e.g. 10.1038/...), not CityUHK-minted DataCite DOIs. No CityUHK DataCite
+    repository prefix was confirmed, so no claim is made.
+- standard: crossref
+  detail: >-
+    Same finding as datacite — Crossref DOIs are cited in metadata but not
+    registered by CityUHK.

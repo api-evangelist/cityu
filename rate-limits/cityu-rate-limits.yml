@@ -12,8 +12,8 @@ tags:
 - University
 - Rate Limiting
 description: >-
-  City University of Hong Kong does not publish a unified public rate-limit table across its APIs. Open
-  metadata and harvesting endpoints (OAI-PMH, IIIF, library) may throttle large-scale
+  City University of Hong Kong does not publish a unified public rate-limit table across its APIs. The one
+  confirmed open harvesting endpoint (the CityUHK Scholars OAI-PMH service) may throttle large-scale
   or automated harvesting; clients should harvest politely, honor Retry-After, and
   contact the relevant service for bulk access.
 notes: Confirm per-service limits with each API's documentation; harvest responsibly.

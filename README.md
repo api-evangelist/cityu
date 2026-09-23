@@ -64,7 +64,7 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-City University of Hong Kong (CityUHK) is a publicly funded research university in Kowloon, Hong Kong SAR, ranked #55 in the QS World University Rankings 2025. This repository catalogs the institution's public developer and API footprint as an [APIs.json](https://apisjson.org/) profile. CityUHK's openly machine-readable surface is modest, centered on its research information system, CityUHK Scholars (Elsevier Pure), which exposes a public OAI-PMH metadata endpoint.
+City University of Hong Kong (CityUHK) is a publicly funded (UGC) research university in Kowloon, Hong Kong SAR. This repository catalogs the institution's public developer and API footprint as an [APIs.json](https://apisjson.org/) profile. CityUHK's openly machine-readable surface is small and, with one exception, TENANTED rather than built: CityUHK Scholars is an Elsevier Pure deployment (scholars.cityu.edu.hk is a CNAME to cityu.elsevierpure.com), Canvas is an Instructure tenant, and single sign-on runs on an Okta tenant at auth.cityu.edu.hk. The exception, and the one machine-readable contract CityUHK operates itself, is its Shibboleth Identity Provider at idp2.cityu.edu.hk, registered in eduGAIN through the Hong Kong Access Federation.
 
 - APIs.json: https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/apis.yml
 - Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=cityu-api-evangelist&utm_content=repo
@@ -75,12 +75,17 @@ City University of Hong Kong (CityUHK) is a publicly funded research university 
 
 ## Tags
 
-Education, Higher Education, University, Research, Institutional Repository, OAI-PMH, Hong Kong, China
+Education, Higher Education, University, Hong Kong, China, Research, Institutional Repository, OAI-PMH, Identity Federation, Research Data, Learning Management
 
 ## APIs
 
-- **CityUHK Scholars OAI-PMH** — Public OAI-PMH 2.0 endpoint for the CityUHK Scholars institutional repository / research information system. Docs: https://scholars.cityu.edu.hk/ — Base: https://scholars.cityu.edu.hk/ws/oai
-- **CityUHK Scholars Pure Web Service (REST)** — Elsevier Pure OpenAPI 3 CRUD REST service backing CityUHK Scholars; gated, requires an API key (returns HTTP 401 without credentials). Docs: https://scholars.cityu.edu.hk/
+Every surface carries an operator: `institution` means CityUHK runs the thing the contract describes; `tenant` means CityUHK's account on a vendor platform, where the data is CityUHK's and the contract is not.
+
+- **CityUHK Shibboleth Identity Provider** — `institution` — CityUHK's own SAML 2.0 IdP, publishing live Shibboleth metadata and registered in eduGAIN via the Hong Kong Access Federation. Metadata: https://idp2.cityu.edu.hk/idp/shibboleth
+- **CityUHK Scholars OAI-PMH** — `tenant` — Public OAI-PMH 2.0 endpoint for the CityUHK Scholars repository. Open, no authentication. Base: https://scholars.cityu.edu.hk/ws/oai
+- **CityUHK Scholars Pure Web Service** — `tenant` — CityUHK's deployment of the Elsevier Pure REST web service at https://scholars.cityu.edu.hk/ws/api, gated by an api-key header. The contract is Elsevier's Pure API 5.35.1-2, a generic product specification, and is deliberately not stored here.
+- **CityUHK Single Sign-On (OIDC / OAuth 2.0)** — `tenant` — Okta authorization server on CityUHK's own hostname, serving public OIDC Discovery and RFC 8414 metadata. Issuer: https://auth.cityu.edu.hk
+- **CityUHK Canvas LMS** — `tenant` — Instructure tenant at canvas.cityu.edu.hk, SSO-gated. No CityUHK LTI registration is publicly readable.
 
 ## Plans / Rate Limits / FinOps
 
@@ -91,19 +96,53 @@ Education, Higher Education, University, Research, Institutional Repository, OAI
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
+- Modified: 2026-08-30
 
 ## Common Properties
 
 - Website: https://www.cityu.edu.hk/
 - GitHub: https://github.com/cityu (official org; no public repositories)
 - LinkedIn: https://hk.linkedin.com/school/cityu/
-- Developer Portal: https://scholars.cityu.edu.hk/
+- Research Repository: https://scholars.cityu.edu.hk/
+- Identity Federation: https://idp2.cityu.edu.hk/idp/shibboleth
+- AI Policy: https://www.cityu.edu.hk/GenAI/guidelines.htm
+- AI Tooling: https://www.cityu.edu.hk/GenAI/gpt-services.htm
+- API Programme (internal, MuleSoft Anypoint): https://www.cityu.edu.hk/its/services-facilities/api-gateway-and-api-management
+- Authentication: [authentication/cityu-authentication.yml](authentication/cityu-authentication.yml)
+- Standards Conformance: [conformance/cityu-education-standards-conformance.yml](conformance/cityu-education-standards-conformance.yml)
 - Review: [review.yml](review.yml)
 
 ## Notes
 
-All entries were verified against live URLs in June 2026; no endpoints were fabricated. The CityUHK Scholars OAI-PMH endpoint was confirmed live (HTTP 200, `verb=Identify` returns repository "CityUHK Scholars", protocol 2.0). The Pure REST Web Service is OpenAPI 3-described but gated (HTTP 401 without an API key) and is listed for completeness. The official GitHub organization exists but currently publishes no public repositories. No public open-data portal, course/timetable/SIS API, or status page was confirmed for the institution; core systems (AIMS, CAP, Canvas, CityUHK Portal) are authenticated and not publicly documented as APIs.
+Re-profiled 2026-08-30 under the API Evangelist university pipeline, which settles who OPERATES a
+surface before saving any contract.
+
+The 34 OpenAPI definitions this repository previously held were not CityUHK's. Each carried
+`info.title: "Pure <resource> API"`, `info.contact.email: pure-support@elsevier.com` and
+`servers: ["/ws/api"]` — Elsevier's generic Pure API 5.35.1-2 product contract, shipped identically
+by at least nine other institutions in the cohort, split into 34 per-tag documents by our own refine
+step and then into 34 `apis[]` entries. DNS confirms it independently: `scholars.cityu.edu.hk` is a
+CNAME to `cityu.elsevierpure.com`. Those 34 specs and the 84 collections, JSON Schemas, JSON
+Structures, examples, Spectral rules, vocabularies, JSON-LD contexts, capability edges and
+agentic-access files derived from them — 118 files — were removed. The Pure deployment is now
+recorded once, as a tenant relationship.
+
+Newly found and verified in the same pass: CityUHK operates its own Shibboleth Identity Provider at
+`idp2.cityu.edu.hk`, publishing live SAML 2.0 IdP metadata and registered in eduGAIN through the
+Hong Kong Access Federation; the OAI-PMH endpoint is genuinely open and rich (persons, publications,
+student theses, datasets, an OpenAIRE set, with ORCID iDs inline in the harvested Dublin Core); and
+single sign-on runs an Okta authorization server on CityUHK's own hostname with public OIDC
+Discovery and RFC 8414 metadata.
+
+CityUHK's IT Services does run a real API gateway and API management practice on MuleSoft Anypoint,
+used to connect campus systems, but none of that catalogue is published or callable off-campus and
+there is no developer portal. No open-data portal, course/timetable/SIS API, or status page was
+found; `data.cityu.edu.hk` and `opendata.cityu.edu.hk` do not resolve. The entire
+`www.cityu.edu.hk` estate is served behind an Imperva/Incapsula bot challenge that returns HTTP 200
+with a challenge body on every deep path, so pointers into it are recorded as live-but-unreadable.
+
+No endpoints were fabricated. The corrected footprint is one institution-operated machine-readable
+contract and four tenant surfaces, which is a lower score than the 34-spec profile it replaces.
 
 ## Maintainers
 
