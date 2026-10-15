@@ -1,0 +1,43 @@
+edges:
+- partner_name: eduGAIN
+  partner: null
+  type: register
+  channel: standard-directory
+  relationship: network-participant
+  direction: partner-built
+  evidence: https://technical.edugain.org/api.php?action=list_entities&type=idp&format=json
+  category: research and education identity federation
+  contract_reference:
+    network: eduGAIN (GÉANT interfederation)
+    spec_file: null
+    roles:
+    - identity-provider
+    - service-provider
+    role: identity-and-service-provider
+    federations:
+    - HKAF
+    matched_by: domain:cityu.edu.hk
+    entities:
+    - entity_id: https://idp2.cityu.edu.hk/idp/shibboleth
+      role: identity-provider
+      federation: HKAF
+      display_name: City University of Hong Kong
+      entity_categories: null
+      sirtfi: false
+      coco: false
+    - entity_id: https://www.cityu.edu.hk/sklmp/booking
+      role: service-provider
+      federation: HKAF
+      display_name: City University of Hong Kong
+      entity_categories: null
+      sirtfi: false
+      coco: true
+    detected_by: sweep-higher-ed.py
+    detected: '2026-10-15'
+  detected_by: sweep-higher-ed.py
+  first_seen: '2026-10-15'
+generated: '2026-10-15'
+method: searched
+checked:
+- https://technical.edugain.org/api.php?action=list_entities&type=idp&format=json
+- https://technical.edugain.org/api.php?action=list_entities&type=sp&format=json
