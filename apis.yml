@@ -58,6 +58,18 @@ tags:
   - OAI-PMH
   - Identity Federation
   - Research Data
+  - LMS
+tags_raw:
+  - Education
+  - Higher Education
+  - University
+  - Hong Kong
+  - China
+  - Research
+  - Institutional Repository
+  - OAI-PMH
+  - Identity Federation
+  - Research Data
   - Learning Management
 created: '2026-06-03'
 modified: '2026-08-30'
@@ -211,6 +223,11 @@ apis:
   humanURL: https://canvas.cityu.edu.hk/
   baseURL: https://canvas.cityu.edu.hk/api/v1
   tags:
+  - LMS
+  - Canvas
+  - LTI
+  - Gated
+  tags_raw:
   - Learning Management
   - Canvas
   - LTI
