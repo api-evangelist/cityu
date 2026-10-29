@@ -1,4 +1,4 @@
-# City University of Hong Kong (cityu)
+# City University of Hong Kong
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,86 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-City University of Hong Kong (CityUHK) is a publicly funded (UGC) research university in Kowloon, Hong Kong SAR. This repository catalogs the institution's public developer and API footprint as an [APIs.json](https://apisjson.org/) profile. CityUHK's openly machine-readable surface is small and, with one exception, TENANTED rather than built: CityUHK Scholars is an Elsevier Pure deployment (scholars.cityu.edu.hk is a CNAME to cityu.elsevierpure.com), Canvas is an Instructure tenant, and single sign-on runs on an Okta tenant at auth.cityu.edu.hk. The exception, and the one machine-readable contract CityUHK operates itself, is its Shibboleth Identity Provider at idp2.cityu.edu.hk, registered in eduGAIN through the Hong Kong Access Federation.
+City University of Hong Kong (CityUHK) is a publicly funded (UGC) research university in Kowloon, Hong Kong SAR. IT Services runs a real API programme — a gateway and API management practice on MuleSoft Anypoint connecting campus systems — but none of it is published or callable outside the university, and there is no public developer portal. The publicly reachable machine-readable footprint is small and, with one exception, TENANTED rather than built: CityUHK Scholars is an Elsevier Pure deployment (scholars.cityu.edu.hk CNAMEs to cityu.elsevierpure.com) with an open OAI-PMH endpoint and a gated REST service on Elsevier's contract; Canvas is an Instructure tenant; single sign-on is an Okta tenant at auth.cityu.edu.hk. The exception is the one contract CityUHK operates itself: its Shibboleth Identity Provider at idp2.cityu.edu.hk, registered in eduGAIN via the Hong Kong Access Federation. The official GitHub organisation publishes zero public repositories.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/cityu/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=cityu-api-evangelist&utm_content=repo
+**Areas:** Education · Higher Education · University · Hong Kong · China · Research · Institutional Repository · OAI-PMH · Identity Federation · Research Data · LMS
 
-## Type
+## City University of Hong Kong on APIs.io
 
-- Index / Consumer / 3rd-Party
+Everything profiled for City University of Hong Kong is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cityu/](https://apis.io/providers/cityu/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-Education, Higher Education, University, Hong Kong, China, Research, Institutional Repository, OAI-PMH, Identity Federation, Research Data, Learning Management
+- [CityUHK Scholars OAI-PMH](https://apis.io/apis/cityu/scholars-oai/) — Public OAI-PMH 2.0 endpoint for CityUHK Scholars, the university's research information system and institutional repository. The Identify verb returns…
+- [CityUHK Scholars Pure Web Service (tenant deployment)](https://apis.io/apis/cityu/scholars-pure-ws/) — CityUHK's deployment of the Elsevier Pure REST web service, reachable at https://scholars.cityu.edu.hk/ws/api and gated by an api-key header. The deployment…
+- [CityUHK Shibboleth Identity Provider](https://apis.io/apis/cityu/shibboleth-idp/) — CityUHK's own SAML 2.0 Identity Provider, running Shibboleth on the university's own host and publishing live IdP metadata with both an IDPSSODescriptor and…
+- [CityUHK Single Sign-On (OpenID Connect / OAuth 2.0)](https://apis.io/apis/cityu/auth-oidc/) — CityUHK's OpenID Connect and OAuth 2.0 authorization server on the university's own hostname auth.cityu.edu.hk, which CNAMEs to…
+- [CityUHK Canvas Learning Management System (tenant deployment)](https://apis.io/apis/cityu/canvas/) — CityUHK's Canvas tenant. canvas.cityu.edu.hk CNAMEs to cityuhk-vanity.instructure.com and redirects unauthenticated traffic to the university's Okta SSO…
 
-## APIs
+### Published properties
 
-Every surface carries an operator: `institution` means CityUHK runs the thing the contract describes; `tenant` means CityUHK's account on a vendor platform, where the data is CityUHK's and the contract is not.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **CityUHK Shibboleth Identity Provider** — `institution` — CityUHK's own SAML 2.0 IdP, publishing live Shibboleth metadata and registered in eduGAIN via the Hong Kong Access Federation. Metadata: https://idp2.cityu.edu.hk/idp/shibboleth
-- **CityUHK Scholars OAI-PMH** — `tenant` — Public OAI-PMH 2.0 endpoint for the CityUHK Scholars repository. Open, no authentication. Base: https://scholars.cityu.edu.hk/ws/oai
-- **CityUHK Scholars Pure Web Service** — `tenant` — CityUHK's deployment of the Elsevier Pure REST web service at https://scholars.cityu.edu.hk/ws/api, gated by an api-key header. The contract is Elsevier's Pure API 5.35.1-2, a generic product specification, and is deliberately not stored here.
-- **CityUHK Single Sign-On (OIDC / OAuth 2.0)** — `tenant` — Okta authorization server on CityUHK's own hostname, serving public OIDC Discovery and RFC 8414 metadata. Issuer: https://auth.cityu.edu.hk
-- **CityUHK Canvas LMS** — `tenant` — Instructure tenant at canvas.cityu.edu.hk, SSO-gated. No CityUHK LTI registration is publicly readable.
+#### Vocabulary (1)
 
-## Plans / Rate Limits / FinOps
+The provider's domain terms, defined.
 
-- Plans: [plans/cityu-plans-pricing.yml](plans/cityu-plans-pricing.yml)
-- Rate Limits: [rate-limits/cityu-rate-limits.yml](rate-limits/cityu-rate-limits.yml)
-- FinOps: [finops/cityu-finops.yml](finops/cityu-finops.yml)
+- [CityUHK Scholars Pure API Vocabulary](https://apis.io/vocabularies/cityu/cityu-vocabulary/)
 
-## Timestamps
+#### Security (2)
 
-- Created: 2026-06-03
-- Modified: 2026-08-30
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Cityu Authentication](https://apis.io/security/cityu/cityu-authentication/)
+- [Cityu Domain Security](https://apis.io/security/cityu/cityu-domain-security/)
 
-- Website: https://www.cityu.edu.hk/
-- GitHub: https://github.com/cityu (official org; no public repositories)
-- LinkedIn: https://hk.linkedin.com/school/cityu/
-- Research Repository: https://scholars.cityu.edu.hk/
-- Identity Federation: https://idp2.cityu.edu.hk/idp/shibboleth
-- AI Policy: https://www.cityu.edu.hk/GenAI/guidelines.htm
-- AI Tooling: https://www.cityu.edu.hk/GenAI/gpt-services.htm
-- API Programme (internal, MuleSoft Anypoint): https://www.cityu.edu.hk/its/services-facilities/api-gateway-and-api-management
-- Authentication: [authentication/cityu-authentication.yml](authentication/cityu-authentication.yml)
-- Standards Conformance: [conformance/cityu-education-standards-conformance.yml](conformance/cityu-education-standards-conformance.yml)
-- Review: [review.yml](review.yml)
+#### Plans and pricing (1)
 
-## Notes
+Published plans, tiers and prices.
 
-Re-profiled 2026-08-30 under the API Evangelist university pipeline, which settles who OPERATES a
-surface before saving any contract.
+- [Cityu Plans Pricing](https://apis.io/plans/cityu/cityu-plans-pricing/)
 
-The 34 OpenAPI definitions this repository previously held were not CityUHK's. Each carried
-`info.title: "Pure <resource> API"`, `info.contact.email: pure-support@elsevier.com` and
-`servers: ["/ws/api"]` — Elsevier's generic Pure API 5.35.1-2 product contract, shipped identically
-by at least nine other institutions in the cohort, split into 34 per-tag documents by our own refine
-step and then into 34 `apis[]` entries. DNS confirms it independently: `scholars.cityu.edu.hk` is a
-CNAME to `cityu.elsevierpure.com`. Those 34 specs and the 84 collections, JSON Schemas, JSON
-Structures, examples, Spectral rules, vocabularies, JSON-LD contexts, capability edges and
-agentic-access files derived from them — 118 files — were removed. The Pure deployment is now
-recorded once, as a tenant relationship.
+#### Rate limits (1)
 
-Newly found and verified in the same pass: CityUHK operates its own Shibboleth Identity Provider at
-`idp2.cityu.edu.hk`, publishing live SAML 2.0 IdP metadata and registered in eduGAIN through the
-Hong Kong Access Federation; the OAI-PMH endpoint is genuinely open and rich (persons, publications,
-student theses, datasets, an OpenAIRE set, with ORCID iDs inline in the harvested Dublin Core); and
-single sign-on runs an Okta authorization server on CityUHK's own hostname with public OIDC
-Discovery and RFC 8414 metadata.
+Published request limits.
 
-CityUHK's IT Services does run a real API gateway and API management practice on MuleSoft Anypoint,
-used to connect campus systems, but none of that catalogue is published or callable off-campus and
-there is no developer portal. No open-data portal, course/timetable/SIS API, or status page was
-found; `data.cityu.edu.hk` and `opendata.cityu.edu.hk` do not resolve. The entire
-`www.cityu.edu.hk` estate is served behind an Imperva/Incapsula bot challenge that returns HTTP 200
-with a challenge body on every deep path, so pointers into it are recorded as live-but-unreadable.
+- [Cityu Rate Limits](https://apis.io/rate-limits/cityu/cityu-rate-limits/)
 
-No endpoints were fabricated. The corrected footprint is one institution-operated machine-readable
-contract and four tenant surfaces, which is a lower score than the 34-spec profile it replaces.
+#### FinOps (1)
 
-## Maintainers
+What the API costs to run, by operation.
 
-- Kin Lane — kin@apievangelist.com
+- [Cityu Finops](https://apis.io/finops/cityu/cityu-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.cityu.edu.hk/)
+- [Documentation](https://www.cityu.edu.hk/its/services-facilities/api-gateway-and-api-management)
+- [GitHub](https://github.com/cityu)
+
+## API Evangelist rating
+
+**Kin Score 13.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 4.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 5.3 |
+
+**Agent readiness 3.1** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cityu/](https://apis.io/providers/cityu/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for City University of Hong Kong: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cityu/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
